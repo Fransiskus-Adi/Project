@@ -1,0 +1,17 @@
+.content-login{
+    height: 638px;
+    background: url("/assets/login-register.png");
+    background-size: cover;
+}
+
+.login-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

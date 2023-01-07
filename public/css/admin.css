@@ -1,0 +1,11 @@
+.content-profile{
+    height: 638px;
+    background: url("/assets/login-register.png");
+    background-size: cover;
+}
+
+.edit-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

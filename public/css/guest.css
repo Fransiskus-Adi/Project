@@ -1,0 +1,32 @@
+.content-1{
+    height: 750px;
+}
+
+.left-content{
+    float: left;
+    width: 50%;
+}
+
+.left-content h1{
+    padding-top: 170px;
+    font-size: 120px;
+}
+
+.right-content{
+    float: right;
+    width: 50%;
+}
+
+.right-content img{
+    width:100%;
+}
+
+.content-about{
+    padding: 0 100px 40px 100px;
+    text-align: center;
+    background-color: #9CC5A1;
+}
+
+.abouts p{
+    font-size: 25px;
+}

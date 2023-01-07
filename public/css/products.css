@@ -1,0 +1,19 @@
+/* .display-product{
+    height: 638px;
+} */
+
+.header-products{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.list-products{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.products{
+    padding: 0 5px 0 5px;
+}
