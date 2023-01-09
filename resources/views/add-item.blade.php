@@ -6,7 +6,7 @@
             <h1>Add Item</h1>
         </div>
         <div class="update-box">
-            <form method="post" action="{{ url('/storeitem') }}" enctype="multipart/form-data">
+            <form method="post" action="/store" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label class="form-label">Item Name</label>
@@ -15,9 +15,9 @@
                 <div class="mb-3">
                     <label class="form-label">Item price</label>
                     <input type="text" class="form-control" id="price" name="price">
-                    @error('price')
+                    {{-- @error('price')
                         <p style="color: red;">{{ $message }}</p>
-                    @enderror
+                    @enderror --}}
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Item Category</label>

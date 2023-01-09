@@ -52,7 +52,8 @@ Route::get('/manage-item', [ProductController::class, 'listProduct'])->name('man
 Route::get('/add-item', function () {
     return view('add-item');
 })->name('add-item')->middleware('admin');
-Route::post('/storeitem', [ProductController::class, 'store']);
+
+Route::post('/store', [ProductController::class, 'storeProduct']);
 
 
 Route::get('/update-item', function () {

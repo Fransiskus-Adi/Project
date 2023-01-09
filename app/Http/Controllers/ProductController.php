@@ -19,20 +19,20 @@ class ProductController extends Controller
         return view('product-detail', compact('products'));
     }
 
-    public function store(Request $request)
+    public function storeProduct(Request $request)
     {
         $validateProduct = $request->validate([
-            'name' => 'required | max:255',
+            'name' => 'required | min:0 | max:255',
             'price' => 'required | min:5000 | integer',
-            'category' => 'required | in:Recycled, Second-Hand',
-            'description' => 'required |',
+            'category' => 'required',
+            'description' => 'required',
             'image' => 'required | file | image',
         ]);
 
-        $productName = $request->image->getClientOriginalName();
-        $productFile = $request->file('image')->storeAs('image-product', $productName);
-        $validateProduct['image'] = $productName;
-
+        // $productName = $request->image->getClientOriginalName();
+        // $productFile = $request->file('image')->storeAs('image-product', $productName);
+        $validateProduct['image'] = $request->file('image')->store('image-product');
+        // $validateProduct['image'] = $productName;
         Product::create($validateProduct);
         return redirect()->route('home');
     }
