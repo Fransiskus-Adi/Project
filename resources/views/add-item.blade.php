@@ -13,7 +13,7 @@
                     <input type="text" class="form-control" id="name" name="name">
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Item price</label>
+                    <label class="form-label">Item Price</label>
                     <input type="text" class="form-control" id="price" name="price">
                     {{-- @error('price')
                         <p style="color: red;">{{ $message }}</p>
@@ -34,7 +34,7 @@
                     <label class="form-label">Product Image</label>
                     <input class="form-control" type="file" id="image" name="image">
                 </div>
-                <button type="submit" class="btn btn-success w-100 mb-5">Submit</button>
+                <button type="submit" class="btn btn-success w-100 mb-5">Add Product</button>
             </form>
         </div>
     </div>

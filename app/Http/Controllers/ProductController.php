@@ -34,7 +34,7 @@ class ProductController extends Controller
         $validateProduct['image'] = $request->file('image')->store('image-product');
         // $validateProduct['image'] = $productName;
         Product::create($validateProduct);
-        return redirect()->route('home');
+        return redirect()->route('manageProduct');
     }
 
     public function deleteProduct($id)
@@ -51,8 +51,8 @@ class ProductController extends Controller
 
     public function updateProduct($id)
     {
-        $products = Product::firstwhere('id', '=', $id);
-        return view('update-item', compact('products'));
+        $product = Product::firstwhere('id', '=', $id);
+        return view('update-item', compact('product'));
     }
 
     public function validateUpdate(Request $request)
@@ -65,22 +65,22 @@ class ProductController extends Controller
             'description' => 'required |',
             'image' => 'required | file | image',
         ]);
-        $products = Product::firstwhere('id', '=', $request->id);
-        $productName = $products->image;
+        $product = Product::firstwhere('id', '=', $request->id);
+        $productName = $product->image;
         if ($request->hasFile('image')) {
             $productName = $request->image->getClientOriginalName();
             $productFile = $request->file('image')->storeAs('image-product', $productName);
         } else {
-            $productName = $products->image;
+            $productName = $product->image;
         }
 
-        $products->id = $request->id;
-        $products->name = $request->name;
-        $products->price = $request->price;
-        $products->category = $request->category;
-        $products->description = $request->description;
-        $products->image = $productName;
-        $products->save();
+        $product->id = $request->id;
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->category = $request->category;
+        $product->description = $request->description;
+        $product->image = $productName;
+        $product->save();
 
         return redirect()->route('manageProduct');
     }

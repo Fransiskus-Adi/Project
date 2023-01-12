@@ -48,7 +48,7 @@ Route::get('/product-detail/{name}', [ProductController::class, 'detailProduct']
 // });
 
 Route::get('/manage-item', [ProductController::class, 'listProduct'])->name('manageProduct')->middleware('admin');
-
+Route::post('/manage-item/{id}', [ProductController::class, 'deleteProduct'])->middleware('admin');
 Route::get('/add-item', function () {
     return view('add-item');
 })->name('add-item')->middleware('admin');
@@ -56,9 +56,9 @@ Route::get('/add-item', function () {
 Route::post('/store', [ProductController::class, 'storeProduct']);
 
 
-Route::get('/update-item', function () {
-    return view('update-item');
-});
+// Route::get('/update-item', function () {
+//     return view('update-item');
+// });
 
 Route::get('/update-item/{id}', [ProductController::class, 'updateProduct'])->middleware('admin');
 Route::patch('/update-item/{id}', [ProductController::class, 'validateUpdate'])->middleware('admin');

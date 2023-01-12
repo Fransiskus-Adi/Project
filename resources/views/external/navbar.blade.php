@@ -31,8 +31,8 @@
                                 Manage Items
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Add Item</a></li>
-                                <li><a class="dropdown-item" href="#">View Item</a></li>
+                                <li><a class="dropdown-item" href="/add-item">Add Item</a></li>
+                                <li><a class="dropdown-item" href="/manage-item">View Item</a></li>
                             </ul>
                         </div>
                     @endif

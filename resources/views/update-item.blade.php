@@ -7,36 +7,45 @@
         </div>
         <div class="update-box">
             @extends('Layout/main')
-            <form method="post" action="/update-item/{{ $product->id }}">
+            <form method="post" action="/update-item/{{ $product->id }}" enctype="multipart/form-data">
+                @method('patch')
+                @csrf
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Item ID</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" disabled
-                        readonly>
+                    <label class="form-label">Item ID</label>
+                    <input type="text" class="form-control" id="id" name="id" disabled readonly
+                        value="{{ $product->id }}">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Item price</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <label class="form-label">Item Name</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{ $product->name }}">
                 </div>
                 <div class="mb-3">
-                    <label for="disabledSelect" class="form-label">Item Category</label>
-                    <select id="disabledSelect" class="form-select">
-                        <option>Recycled</option>
-                        <option>Second</option>
+                    <label class="form-label">Item Price</label>
+                    <input type="text" class="form-control" id="price" name="price" value="{{ $product->price }}">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Item Category</label>
+                    <select id="category" name="category" class="form-select">
+                        <option value="Recycled">Recycled</option>
+                        <option value="Second-Hand">Second</option>
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Item Name</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label class="form-label">Item Description</label>
+                    <textarea class="form-control" id="description" name="description" rows="3">{{ $product->description }}</textarea>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Item Description</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <div class="old-image">
+                        <label class="form-label">Old Image</label>
+                        <img src="{{ asset('storage/image-product/' . $product->image) }}" class="img-thumbnail"
+                            alt="...">
+                    </div>
+                    <div class="new-image">
+                        <label class="form-label">New Image</label>
+                        <input class="form-control" type="file" id="image" name="image">
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="formFile" class="form-label">New Image</label>
-                    <input class="form-control" type="file" id="formFile">
-                </div>
-                <button type="submit" class="btn btn-success w-100 mb-5">Submit</button>
+                <button type="submit" class="btn btn-success w-100 mb-5">Update</button>
             </form>
         </div>
     </div>
